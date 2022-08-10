@@ -19,15 +19,15 @@ if (_cekData($mysqli,$sqladmin)== true){
 
 }else if(_cekData($mysqli,$sqlkasir)== true){
 	//JIka data ditemukan
-	$_SESSION['guru']=_dataCustom($mysqli,$sqlkasir);
+	$_SESSION['kasir']=_dataCustom($mysqli,$sqlkasir);
 	echo "<script>alert('Anda login sebagai Kasir')</script>";
-	echo "<script>window.location='guru/index.php?hal=dashboard';</script>";
+	echo "<script>window.location='kasir/index.php?hal=dashboard';</script>";
 
 }else if(_cekData($mysqli,$sqlpemilik)== true){
 	//JIka data ditemukan
-	$_SESSION['siswa']=_dataCustom($mysqli,$sqlpemilik);
+	$_SESSION['pemilik']=_dataCustom($mysqli,$sqlpemilik);
 	echo "<script>alert('Anda login sebagai Pemilik')</script>";
-	echo "<script>window.location='siswa/index.php?hal=dashboard';</script>";
+	echo "<script>window.location='pemilik/index.php?hal=dashboard';</script>";
 
 }else{
 		//Jika tidak ditemukan
