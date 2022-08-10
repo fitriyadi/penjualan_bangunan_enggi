@@ -41,7 +41,7 @@
                                     <td><?= $namakategori ?></td>
                                     <td><?= number_format($hargabeli,0) ?></td>
                                     <td><?= number_format($hargajual,0) ?></td>
-                                    <td><?= $stok ?></td>
+                                    <td><?= label_stok($stok,30); ?></td>
                                     <td>
                                         <?= _edit("?hal=barang/olah&id=$idbarang") ?>
                                         <?= _hapus("?hal=barang/proses&hapus=$idbarang") ?>

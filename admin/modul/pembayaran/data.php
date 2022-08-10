@@ -74,8 +74,8 @@
                                     <td><?= $notelepon ?></td>
                                     <td><?= tgl_indo($tanggal) ?></td>
                                     <td><?= number_format($total,0);$totalall+=$total; ?></td>
-                                    <td><?= $jenisbayar ?></td>
-                                    <td><?= $statusbayar ?></td>
+                                    <td><?= label_jenis_bayar($jenisbayar) ?></td>
+                                    <td><?= label_status_bayar($statusbayar) ?></td>
                                     <td>
                                         <?= _detail("?hal=pembayaran/olah&id=$idpenjualan") ?>
                                     </td>
