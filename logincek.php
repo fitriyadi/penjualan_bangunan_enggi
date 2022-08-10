@@ -31,7 +31,7 @@ if (_cekData($mysqli,$sqladmin)== true){
 
 }else{
 		//Jika tidak ditemukan
-	echo "<script>alert('Username atau password tidak terdaftar')</script>";
+	echo "<script>alert('Username atau password tidak terdaftar pada sistem')</script>";
 	echo "<script>window.location='index.php';</script>";
 	
 }
