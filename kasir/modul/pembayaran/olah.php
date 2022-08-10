@@ -169,7 +169,7 @@ $kekurangan=$total-$sudahdibayar;
                     <hr>
                     <div class="form-group row ">
                         <div class="col-sm-9 offset-9">
-                            <a class="btn btn-light" href="/penjualan">Batal</a>
+                        <a class="btn btn-light" href="?hal=pembayaran/data">Batal</a>
                         </div>
                     </div>
                 </form>

@@ -11,6 +11,13 @@
   <li class="nav-item nav-category">Master Data</li>
 
   <li class="nav-item">
+    <a href="?hal=pengguna/data" class="nav-link">
+      <i class="link-icon" data-feather="user"></i>
+      <span class="link-title">Data Pengguna</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
     <a href="?hal=supplier/data" class="nav-link">
       <i class="link-icon" data-feather="phone-call"></i>
       <span class="link-title">Data Supplier</span>
@@ -33,9 +40,6 @@
     <div class="collapse" id="barang">
       <ul class="nav sub-menu">
         <li class="nav-item">
-          <a href="?hal=kategori/data" class="nav-link">Data Kategori</a>
-        </li>
-        <li class="nav-item">
           <a href="?hal=barang/data" class="nav-link">Data Barang</a>
         </li>
       </ul>
@@ -53,9 +57,6 @@
         <li class="nav-item">
           <a href="?hal=pembelian/data" class="nav-link">Data Pembelian</a>
         </li>
-        <li class="nav-item">
-          <a href="?hal=pembelian/olah" class="nav-link">Tambah Pembelian</a>
-        </li>
       </ul>
     </div>
   </li>
@@ -68,9 +69,6 @@
     </a>
     <div class="collapse" id="penjualan">
       <ul class="nav sub-menu">
-        <li class="nav-item">
-          <a href="?hal=penjualan/olah" class="nav-link">Tambah Penjualan</a>
-        </li>
         <li class="nav-item">
           <a href="?hal=penjualan/data" class="nav-link">Data Penjualan</a>
         </li>

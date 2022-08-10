@@ -88,10 +88,6 @@ $kekurangan=$total-$sudahdibayar;
 
                     <div class="form-group row">
                         <div class="col-sm-3 offset-9">
-                        <?php if($statusbayar!='Lunas'){ ?>    
-                        <input type="submit" class="btn btn-primary mr-2" name="simpan" value="Simpan">
-                        <?php } ?>
-
                             <a class="btn btn-light" href="?hal=pembayaran/data">Batal</a>
                         </div>
                     </div>
@@ -169,7 +165,7 @@ $kekurangan=$total-$sudahdibayar;
                     <hr>
                     <div class="form-group row ">
                         <div class="col-sm-9 offset-9">
-                        <a class="btn btn-light" href="?hal=pembayaran/data">Batal</a>
+                            <a class="btn btn-light" href="?hal=pembayaran/data">Batal</a>
                         </div>
                     </div>
                 </form>
