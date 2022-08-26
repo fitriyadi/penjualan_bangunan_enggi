@@ -16,26 +16,38 @@ if(isset($_POST['tambahbarang'])){
     $subtotal=$hargajual*$jumlah;
     $jenis='jual';
 
-	$stmt = $mysqli->prepare("INSERT INTO tmp_barang 
-		(tmp_id,tmp_nama,tmp_harga,tmp_jumlah,tmp_subtotal,tmp_jenis,tmp_user) 
-		VALUES (?,?,?,?,?,?,?)");
+	$$jumlahkeranjang=_dataCustom($mysqli,"select sum(tmp_jumlah) from tmp_barang where tmp_id='$idbarang'");
+    $jumlahstok=_dataCustom($mysqli,"select stok from tb_barang where idbarang='$idbarang'");
 
-	$stmt->bind_param("sssssss", 
-		$idbarang,
-		$namabarang,
-		$hargajual,
-        $jumlah,
-        $subtotal,
-        $jenis,
-        $iduser);	
-	
-	if ($stmt->execute()) { 
-		echo "<script>alert('Data barang berhasil ditambahkan')</script>";
-		echo "<script>window.location='index.php?hal=penjualan/olah';</script>";	
-	} else {
-		echo "<script>alert('Data barang Gagal Ditambahkan')</script>";
-		echo "<script>window.location='javascript:history.go(-1)';</script>";
-	}
+    if(($jumlahkeranjang+$jumlah) > $jumlahstok){
+
+        echo "<script>alert('Stok tidak mencukupi,sisa barang tinggal $jumlahstok')</script>";
+        echo "<script>window.location='javascript:history.go(-1)';</script>";
+
+    }else{
+
+        $stmt = $mysqli->prepare("INSERT INTO tmp_barang 
+            (tmp_id,tmp_nama,tmp_harga,tmp_jumlah,tmp_subtotal,tmp_jenis,tmp_user) 
+            VALUES (?,?,?,?,?,?,?)");
+
+        $stmt->bind_param("sssssss", 
+            $idbarang,
+            $namabarang,
+            $hargajual,
+            $jumlah,
+            $subtotal,
+            $jenis,
+            $iduser);   
+        
+        if ($stmt->execute()) { 
+            echo "<script>alert('Data barang berhasil ditambahkan')</script>";
+            echo "<script>window.location='index.php?hal=penjualan/olah';</script>";    
+        } else {
+            echo "<script>alert('Data barang Gagal Ditambahkan')</script>";
+            echo "<script>window.location='javascript:history.go(-1)';</script>";
+        }
+
+    }
 
 }else if(isset($_GET['hapusbarang'])){
 
