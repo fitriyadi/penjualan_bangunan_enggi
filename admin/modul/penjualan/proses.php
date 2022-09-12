@@ -5,7 +5,7 @@ if(isset($_POST['tambahbarang'])){
 //Proses penambahan index
     $_SESSION['penjualan']['tanggal']=$_POST['tanggal'];
     $_SESSION['penjualan']['idpelanggan']=$_POST['idpelanggan'];
-    $_SESSION['penjualan']['idpelanggan']=$_POST['jenisbayar'];
+    $_SESSION['penjualan']['jenisbayar']=$_POST['jenisbayar'];
    
 
     //Simpan Ke Temp
