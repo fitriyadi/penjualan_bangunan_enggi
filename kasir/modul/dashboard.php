@@ -122,33 +122,52 @@
 </div> <!-- row -->
 
 <?php
-$nama_klasifikasi="";
+//Generate Barang 5 Terlaris
+    $no = 0;
+	$namabarang_array=array();
+	$idbarang_array=array();
+	$jumlahbarang_array=array();
+    $sql = "SELECT SUM(jumlah)AS jumlah,tb_barang.idbarang,namabarang FROM tb_item_jual JOIN 		tb_barang USING (idbarang)
+	GROUP BY namabarang,tb_barang.idbarang
+	ORDER BY SUM(jumlah) DESC
+	LIMIT 5";
+    	foreach (_dataGetAll($mysqli, $sql) as $key => $value) :
+            extract($value);
+			$namabarang_array[$no+=1]=$namabarang;
+			$idbarang_array[$no]=$idbarang;
+			$jumlahbarang_array[$no]=$jumlah;
+		endforeach;
+
+
+$datanama="";
 $jumlah="";
-$surat="Semen Tiga Roda";
-$nama_klasifikasi .= "'$surat'". ", ";
-$surat="Semen Holchim";
-$nama_klasifikasi .= "'$surat'". ", ";
-$surat="Soka Genteng";
-$nama_klasifikasi .= "'$surat'". ", ";
-$surat="Kebumen Genteng";
-$nama_klasifikasi .= "'$surat'". ", ";
+$namabarang=$namabarang_array[1];
+$datanama .= "'$namabarang'". ", ";
+$namabarang=$namabarang_array[2];
+$datanama .= "'$namabarang'". ", ";
+$namabarang=$namabarang_array[3];
+$datanama .= "'$namabarang'". ", ";
+$namabarang=$namabarang_array[4];
+$datanama .= "'$namabarang'". ", ";
+$namabarang=$namabarang_array[5];
+$datanama .= "'$namabarang'". ", ";
 
-
-
-
-$jum[1]=_dataCustom($mysqli,"select sum(jumlah) from tb_item_jual where  idbarang='1'");
+$jum[1]=$jumlahbarang_array[1];
 $jumlah .= "$jum[1]". ", ";
 
-$jum[2]=_dataCustom($mysqli,"select sum(jumlah) from tb_item_jual where  idbarang='2'");
+$jum[2]=$jumlahbarang_array[2];
 $jumlah .= "$jum[2]". ", ";
 
-$jum[3]=_dataCustom($mysqli,"select sum(jumlah) from tb_item_jual where  idbarang='4'");
+$jum[3]=$jumlahbarang_array[3];
 $jumlah .= "$jum[3]". ", ";
 
-$jum[4]=_dataCustom($mysqli,"select sum(jumlah) from tb_item_jual where  idbarang='5'");
-$jumlah .= "$jum[3]". ", ";
+$jum[4]=$jumlahbarang_array[4];
+$jumlah .= "$jum[4]". ", ";
 
-$all=$jum[1]+$jum[2]+$jum[3]+$jum[4];
+$jum[5]=$jumlahbarang_array[5];
+$jumlah .= "$jum[5]". ", ";
+
+$all=$jum[1]+$jum[2]+$jum[3]+$jum[4]+$jum[5];
 ?>
 
 <div class="row">
@@ -158,27 +177,32 @@ $all=$jum[1]+$jum[2]+$jum[3]+$jum[4];
 				<h6 class="card-title">Penjualan Terlaris</h6>
 				<ul class="list-group">
 					<li class="list-group-item">
-						Semen Tiga Roda  
+						<?=$namabarang_array[1]; ?>
 						<span class="badge badge-primary float-right">
 						<?=$jum[1]?></span>
 					</li>
 
 					<li class="list-group-item">
-						Semen Holchim  
+						<?=$namabarang_array[2]; ?>
 						<span class="badge badge-warning float-right">
 						<?=$jum[2]?></span>
 					</li>
 
 					<li class="list-group-item">
-						Soka Genteng  
+						<?=$namabarang_array[3]; ?>  
 						<span class="badge badge-secondary float-right">
 						<?=$jum[3]?></span>
 					</li>
 
 					<li class="list-group-item">
-						Kebumen Genteng  
+						<?=$namabarang_array[4]; ?> 
 						<span class="badge badge-info float-right">
 						<?=$jum[4]?></span>
+					</li>
+					<li class="list-group-item">
+						<?=$namabarang_array[5]; ?>  
+						<span class="badge badge-danger float-right">
+						<?=$jum[5]?></span>
 					</li>
 				</ul>
 			</div>
@@ -202,10 +226,10 @@ $all=$jum[1]+$jum[2]+$jum[3]+$jum[4];
         type: 'pie',
         // The data for our dataset
         data: {
-        	labels: [<?php echo $nama_klasifikasi; ?>],
+        	labels: [<?php echo $datanama; ?>],
         	datasets: [{
         		label:'Distribusi Data',
-        		backgroundColor: ['rgba(56, 86, 255, 0.87)','rgb(218, 215, 49)', 'rgb(0, 185, 203)','rgb(175, 238, 239)'],
+        		backgroundColor: ['rgba(56, 86, 255, 0.87)','rgb(218, 215, 49)', 'rgb(0, 185, 203)','rgb(175, 238, 239)','rgb(220, 40, 50)'],
         		borderColor: ['rgb(255, 99, 132)'],
         		data: [<?php echo $jumlah; ?>]
         	}]
