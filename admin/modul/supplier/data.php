@@ -40,8 +40,7 @@
                                     <td><?= $alamat ?></td>
                                     <td>
                                         <?= _edit("?hal=supplier/olah&id=$idsupplier") ?>
-                                        <?= _hapus("?hal=supplier/proses&hapus=$idsupplier") ?>
-                                    </td>
+                                        </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

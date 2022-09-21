@@ -1,7 +1,7 @@
 <nav class="page-breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/home">Home</a></li>
-        <li class="breadcrumb-item"><a href="{{batal}}">Data penjualan</a></li>
+        <li class="breadcrumb-item"><a href="?hal=dashboard">Home</a></li>
+        <li class="breadcrumb-item"><a href="?hal=penjualan/data">Data penjualan</a></li>
         <li class="breadcrumb-item" aria-current="page">Tambah</li>
     </ol>
 </nav>
@@ -74,8 +74,12 @@
                         <label for="input" class="col-sm-3 col-form-label">Pilih Jenis Bayar</label>
                         <div class="col-sm-3">
                             <select class="form-control" name="jenisbayar" required>
-                                <option value="Langsung">Langsung</option>
-                                <option value="Kredit">Kredit</option>
+                                <option value="Langsung"  
+                                <?=isselect(isset($_SESSION['penjualan']['jenisbayar']) ? $_SESSION['penjualan']['jenisbayar']:'',"Langsung")?>
+                                >Langsung</option>
+                                <option value="Kredit"
+                                <?=isselect(isset($_SESSION['penjualan']['jenisbayar']) ? $_SESSION['penjualan']['jenisbayar']:'',"Kredit")?>
+                                >Kredit</option>
                             </select>
                         </div>
 
@@ -131,7 +135,7 @@
                     <div class="form-group row ">
                         <div class="col-sm-9 offset-9">    
                         <button type="submit" class="btn btn-primary mr-2" name="simpan" <?=($total==0) ? 'disabled':'';?>>Simpan</button>
-                            <a class="btn btn-light" href="/penjualan">Batal</a>
+                            <a class="btn btn-light" href="?hal=penjualan/data">Batal</a>
                         </div>
                     </div>
                 </form>

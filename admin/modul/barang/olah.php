@@ -55,13 +55,6 @@ if(isset($_GET['id']))
                         </div>
                     </div>
 
-					<div class="form-group row">
-						<label for="input" class="col-sm-3 col-form-label">Stok</label>
-						<div class="col-sm-9">
-							<input type="number" class="form-control" name="stok" value="<?=@$stok?>"   placeholder="Inputkan Stok" required>
-						</div>
-					</div>
-
                     <div class="form-group row">
 						<label for="input" class="col-sm-3 col-form-label">Harga Beli</label>
 						<div class="col-sm-9">

@@ -5,7 +5,7 @@ if(isset($_POST['tambahbarang'])){
 //Proses penambahan index
     $_SESSION['penjualan']['tanggal']=$_POST['tanggal'];
     $_SESSION['penjualan']['idpelanggan']=$_POST['idpelanggan'];
-    $_SESSION['penjualan']['idpelanggan']=$_POST['jenisbayar'];
+    $_SESSION['penjualan']['jenisbayar']=$_POST['jenisbayar'];
    
 
     //Simpan Ke Temp
@@ -16,7 +16,7 @@ if(isset($_POST['tambahbarang'])){
     $subtotal=$hargajual*$jumlah;
     $jenis='jual';
 
-	$$jumlahkeranjang=_dataCustom($mysqli,"select sum(tmp_jumlah) from tmp_barang where tmp_id='$idbarang'");
+    $jumlahkeranjang=_dataCustom($mysqli,"select sum(tmp_jumlah) from tmp_barang where tmp_id='$idbarang'");
     $jumlahstok=_dataCustom($mysqli,"select stok from tb_barang where idbarang='$idbarang'");
 
     if(($jumlahkeranjang+$jumlah) > $jumlahstok){

@@ -1,7 +1,7 @@
 <nav class="page-breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/home">Home</a></li>
-        <li class="breadcrumb-item"><a href="{{batal}}">Data Pembelian</a></li>
+        <li class="breadcrumb-item"><a href="?hal=dashboard">Home</a></li>
+        <li class="breadcrumb-item"><a href="?hal=pembelian/data">Data Pembelian</a></li>
         <li class="breadcrumb-item" aria-current="page">Tambah</li>
     </ol>
 </nav>
@@ -65,7 +65,7 @@
 
                         <label for="input" class="col-sm-2 col-form-label">Jumlah</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="jumlah" value="1" min="1"
+                            <input type="number" class="form-control" name="jumlah" value="1" min="1"
                                 placeholder="Inputkan Jumlah Barang">
                         </div>
                     </div>
